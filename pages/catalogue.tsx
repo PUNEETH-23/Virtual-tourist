@@ -9,66 +9,82 @@ const Catalogue = () => {
       name: "Urban Cities",
       description:
         "Explore the bustling streets and iconic landmarks of the world's most vibrant cities.",
-      image: "urban_cities.jpg",
       videos: [
         { name: "London", videoId: "KGerjHMa90s" },
         { name: "Paris", videoId: "Cnvi6oI3Eno" },
         { name: "New York", videoId: "TRnbMTjjNHQ" },
+        { name: "Rajasthan", videoId: "QCCDqtepOLY" },
+        { name: "Mumbai", videoId: "CZHFu2BSZPs" },
       ],
     },
     {
       name: "Historical Sites",
       description:
         "Step back in time and visit ancient monuments, temples, and other historical treasures.",
-      image: "historical_sites.jpg",
       videos: [
         { name: "Pyramids of Egypt", videoId: "mOuvAJRknXk" },
         { name: "The Taj Mahal", videoId: "Bx2S7JpdOp4" },
         { name: "Chichen Itza", videoId: "W7KTl4r00sI" },
+        { name: "Angkor Wat", videoId: "B8UzsVY1IE8" },
+        { name: "Luxor ruins", videoId: "ZGWNcvnQQtU" },
       ],
     },
     {
       name: "Relaxation & Nature",
       description:
         "Unwind in serene landscapes, tranquil beaches, and peaceful natural settings.",
-      image: "relaxation_nature.jpg",
       videos: [
         { name: "Maldives", videoId: "jqq_ZdD5Zwg" },
         { name: "Nature", videoId: "7AkbUfZjS5k" },
         { name: "Night sky", videoId: "XucTpkjQQLc" },
+        { name: "Forest", videoId: "7AkbUfZjS5k" },
+        { name: "Galaxy", videoId: "3offgJ5kSM0" },
       ],
     },
     {
       name: "Thrilling",
       description:
         "Get your adrenaline pumping with exciting, action-packed experiences in daring locations.",
-      image: "thrilling.jpg",
       videos: [
         { name: "Roller coaster", videoId: "oAJLKDMihnU" },
         { name: "Snake Chase", videoId: "X_qfq_xGVwE" },
-        { name: "FEAR OF HEIGHTS", videoId: "rNVpFXuAXIA" },
+        { name: "Fear of Heights", videoId: "rNVpFXuAXIA" },
+        { name: "Scuba diving", videoId: "2OzlksZBTiA" },
+        { name: "Sky diving", videoId: "S5XXsRuMPIU" },
       ],
     },
     {
       name: "Safari",
       description:
         "Dive into the rich cultures and traditions of different regions, celebrating unique customs and rituals.",
-      image: "safari.jpg",
       videos: [
         { name: "Lions", videoId: "sPyAQQklc1s" },
         { name: "Elephant Encounter", videoId: "HI7mTIxNotQ" },
         { name: "Antarctica", videoId: "XPhmpfiWEEw" },
+        { name: "Tiger", videoId: "nF8UTFHpmjE" },
       ],
     },
     {
       name: "Underwater",
       description:
         "Dive deep into the ocean and discover the wonders of marine life and underwater ecosystems.",
-      image: "underwater.jpg",
       videos: [
         { name: "Sharks", videoId: "c9YRl7Yu-p8" },
         { name: "Underwater National Park", videoId: "v64KOxKVLVg" },
         { name: "Underwater Life", videoId: "eKumVFvGHFA" },
+        { name: "Buck Island", videoId: "v64KOxKVLVg" },
+        { name: "Isle of jaws", videoId: "sT0hVLEe5mU" },
+      ],
+    },
+    {
+      name: "Pilgrimages",
+      description:
+        "Embark on a spiritual journey and explore the ancient temples and holy shrines that connect humanity to the divine across cultures and religions.",
+      videos: [
+        { name: "Mount Everest", videoId: "PnfJDgS9VZc" },
+        { name: "Kedarnath", videoId: "OYiHRowaw2U" },
+        { name: "Golden Temple", videoId: "EBSh4nVtR9s" },
+        { name: "Ganga aarti", videoId: "0wY9A5oji1E" },
       ],
     },
   ];
@@ -82,8 +98,8 @@ const Catalogue = () => {
   return (
     <div
       style={{
-        background: "linear-gradient(135deg, #000957 0%, #344CB7 100%)",
-        color: "#FFEB00",
+        background: "linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%)",
+        color: "#2d3748",
         padding: "40px",
         minHeight: "100vh",
       }}
@@ -93,8 +109,8 @@ const Catalogue = () => {
           textAlign: "center",
           fontSize: "5rem",
           marginBottom: "30px",
-          color: "#FFEB00",
-          textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+          color: "#1a365d",
+          textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
         }}
       >
         Tourism Catalogue
@@ -120,8 +136,8 @@ const Catalogue = () => {
               onClick={() => setSelectedVideo(null)}
               style={{
                 padding: "10px 20px",
-                backgroundColor: "#577BC1",
-                color: "#000",
+                backgroundColor: "#4a5568",
+                color: "#fff",
                 border: "none",
                 borderRadius: "5px",
                 cursor: "pointer",
@@ -151,12 +167,12 @@ const Catalogue = () => {
                 )
               }
               style={{
-                background: "#344CB7",
-                padding: "20px",
+                background: "linear-gradient(145deg, #ffffff, #f0f4ff)",
+                padding: "40px",
                 borderRadius: "12px",
                 textAlign: "center",
                 cursor: "pointer",
-                boxShadow: "0 6px 20px rgba(0, 0, 0, 0.15)",
+                boxShadow: "0 6px 20px rgba(66, 153, 225, 0.15)",
                 backdropFilter: "blur(5px)",
                 transition: "transform 0.3s, box-shadow 0.3s",
                 fontSize: "1.2rem",
@@ -164,35 +180,23 @@ const Catalogue = () => {
                 width: "100%",
                 maxWidth: "400px",
                 border: "1px solid rgba(99, 179, 237, 0.2)",
-                color: "#FFEB00",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "scale(1.05)";
                 e.currentTarget.style.boxShadow =
-                  "0 8px 25px rgba(0, 0, 0, 0.25)";
+                  "0 8px 25px rgba(66, 153, 225, 0.25)";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "scale(1)";
                 e.currentTarget.style.boxShadow =
-                  "0 6px 20px rgba(0, 0, 0, 0.15)";
+                  "0 6px 20px rgba(66, 153, 225, 0.15)";
               }}
             >
-              <img
-                src={category.image}
-                alt={category.name}
-                style={{
-                  width: "100%",
-                  height: "200px",
-                  objectFit: "cover",
-                  borderRadius: "8px",
-                  marginBottom: "10px",
-                }}
-              />
               <h2
                 style={{
                   fontSize: "1.8rem",
                   marginBottom: "15px",
-                  color: "#FFEB00",
+                  color: "#2b6cb0",
                 }}
               >
                 {category.name}
@@ -200,20 +204,19 @@ const Catalogue = () => {
               {selectedCategory === category.name && (
                 <div
                   style={{
-                    background: "#000957",
+                    background: "rgba(235, 244, 255, 0.95)",
                     padding: "20px",
                     borderRadius: "8px",
                     marginTop: "20px",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0 4px 6px rgba(66, 153, 225, 0.1)",
                     border: "1px solid rgba(99, 179, 237, 0.2)",
-                    color: "#FFEB00",
                   }}
                 >
                   <p
                     style={{
                       fontSize: "1rem",
                       marginBottom: "20px",
-                      color: "#FFEB00",
+                      color: "#2d4ed8",
                     }}
                   >
                     {category.description}
@@ -234,8 +237,8 @@ const Catalogue = () => {
                         }}
                         style={{
                           padding: "10px 20px",
-                          background: "#FFEB00",
-                          color: "#000",
+                          background: "linear-gradient(145deg, #4299e1, #3182ce)",
+                          color: "#fff",
                           border: "none",
                           borderRadius: "5px",
                           cursor: "pointer",
@@ -261,7 +264,7 @@ const Catalogue = () => {
           style={{
             textDecoration: "none",
             fontSize: "1.6rem",
-            color: "#FFEB00",
+            color: "#2b6cb0",
             fontWeight: "bold",
           }}
         >

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const Catalogue = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const categories = [
     {
@@ -61,27 +62,52 @@ const Catalogue = () => {
     }
   };
 
+  const filteredCategories = categories.filter(
+    (category) =>
+      category.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      category.videos.some((video) =>
+        video.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+  );
+
   return (
     <div
       style={{
-        background: "linear-gradient(135deg, #F5EFFF 0%, #E5D9F2 100%)",
+        background: "linear-gradient(135deg, #E8E7AB 0%, #F2AE66 100%)",
         padding: "50px 20px",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        fontFamily: "Arial, sans-serif",
       }}
     >
       <h1
         style={{
-          fontSize: "4rem",
-          color: "#A294F9",
+          fontSize: "3.5rem",
+          color: "#C30E59",
           textAlign: "center",
           marginBottom: "40px",
         }}
       >
         Tourism Catalogue
       </h1>
+
+      <input
+        type="text"
+        placeholder="Search for categories or videos..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        style={{
+          padding: "10px",
+          width: "90%",
+          maxWidth: "600px",
+          borderRadius: "8px",
+          border: "2px solid #E82561",
+          marginBottom: "30px",
+          fontSize: "1rem",
+        }}
+      />
 
       {selectedVideo ? (
         <div style={{ textAlign: "center" }}>
@@ -103,7 +129,7 @@ const Catalogue = () => {
               onClick={() => setSelectedVideo(null)}
               style={{
                 padding: "10px 20px",
-                backgroundColor: "#CDC1FF",
+                backgroundColor: "#E82561",
                 color: "#fff",
                 border: "none",
                 borderRadius: "5px",
@@ -125,7 +151,7 @@ const Catalogue = () => {
             maxWidth: "1200px",
           }}
         >
-          {categories.map((category) => (
+          {filteredCategories.map((category) => (
             <div
               key={category.name}
               onClick={() =>
@@ -134,42 +160,26 @@ const Catalogue = () => {
                 )
               }
               style={{
-                background: "linear-gradient(145deg, #E5D9F2, #F5EFFF)",
+                background: "linear-gradient(145deg, #E82561, #F2AE66)",
                 padding: "20px",
                 borderRadius: "12px",
                 textAlign: "center",
                 cursor: "pointer",
-                boxShadow: "0 6px 20px rgba(154, 137, 229, 0.3)",
+                boxShadow: "0 6px 20px rgba(227, 37, 97, 0.3)",
                 transition: "transform 0.3s",
-                border: "1px solid #CDC1FF",
+                border: "1px solid #C30E59",
               }}
             >
-              <h2 style={{ color: "#A294F9", marginBottom: "15px" }}>
+              <h2 style={{ color: "#C30E59", marginBottom: "15px" }}>
                 {category.name}
               </h2>
-              <p style={{ color: "#7E5FD3", marginBottom: "10px" }}>
+              <p style={{ color: "#E8E7AB", marginBottom: "10px" }}>
                 {category.description}
               </p>
             </div>
           ))}
         </div>
       )}
-
-      <div style={{ marginTop: "40px", textAlign: "center" }}>
-        <a
-          href="https://chatbot-y69cjuqsxtjgkcice2n7vy.streamlit.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontSize: "1.2rem",
-            color: "#A294F9",
-            fontWeight: "bold",
-            textDecoration: "none",
-          }}
-        >
-          Click here to chat with our Virtual Tourist Assistant
-        </a>
-      </div>
     </div>
   );
 };
